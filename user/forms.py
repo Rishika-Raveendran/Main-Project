@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 class CreateUserForm(UserCreationForm):
     email = forms.EmailField()
+    branchID = forms.CharField(required=False)
     
 
     class Meta:
