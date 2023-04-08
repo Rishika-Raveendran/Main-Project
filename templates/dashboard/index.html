@@ -3,6 +3,7 @@
 
 {% block content %}
 
+{% if user.is_authenticated and user.is_staff and user.is_superuser%}
 {% include 'partials/topnav.html' %}
 
     <!--Graphs-->
@@ -18,7 +19,7 @@
                             data: {
                                 labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June'],
                                 datasets: [{
-                                    label: 'Overall Profit',
+                                    label: 'Overall Sales',
                                     data: [12, 19, 3, 5, 2, 3],
                                    /* backgroundColor: [
                                         'rgba(255, 99, 132, .5)',
@@ -65,7 +66,7 @@
                             data: {
                                 labels: ['Sari', 'Churidar', 'Jeans', 'Dress', 'Tops', 'Shirts'],
                                 datasets: [{
-                                    label: 'Product wise Profit',
+                                    label: 'Product wise Sale',
                                     data: [12, 19, 3, 5, 2, 3],
                                     backgroundColor: [
                                         'rgba(255, 99, 132, .5)',
@@ -102,4 +103,9 @@
         </div>
     </div>
     <!--End Graphs-->
+    {% elif user.is_authenticated and user.is_staff%}
+    {% include 'dashboard/staff_index.html' %}
+    {% else %}
+    {% include 'dashboard/active_index.html' %}
+    {% endif %}
 {% endblock %}
