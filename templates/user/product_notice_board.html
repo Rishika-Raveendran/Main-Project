@@ -1,0 +1,63 @@
+
+{% extends 'partials/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                  Product Request Notice Board
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span class="h4"> Product Information</span> 
+                            <hr>
+                            {% if product_requests %}
+                            <table class="table bg-white table-borderless">
+                              <thead>
+                                <tr>
+                                  <th>Product Name</th>
+                                  <th>Requested By</th>
+                                  <th>Date Requested</th>
+                                  <th>Status</th>
+                                  <th>Action</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for product_request in product_requests %}
+                                  <tr>
+                                    <td>{{ product_request.product_name }}</td>
+                                    <td>{{ product_request.requested_by }}</td>
+                                    <td>{{ product_request.date_requested }}</td>
+                                    <td>{% if product_request.is_accepted %}Accepted{% else %}Pending{% endif %}</td>
+                                    <td>{% if not product_request.is_accepted %}
+                                          <form method="post" action="{% url 'accept_product_request' product_request.id %}">
+                                            {% csrf_token %}
+                                            <input type="submit" value="Accept">
+                                          </form>
+                                        {% endif %}
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                              </tbody>
+                            </table>
+                            {% else %}
+                              <p>No product requests found.</p>
+                            {% endif %}
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

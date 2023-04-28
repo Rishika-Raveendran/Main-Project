@@ -3,6 +3,10 @@ from multiprocessing import context
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm , UserUpdateForm, ProfileUpdateForm
+from .models import ProductRequest
+from .forms import ProductRequestForm
+from django.urls import path
+from . import views
 
 # Create your views here.
 
@@ -41,3 +45,26 @@ def profile_update(request):
         'profile_form': profile_form,
     }
     return render(request,'user/profile_update.html', context)
+
+
+def product_request(request):
+    if request.method == 'POST':
+        form = ProductRequestForm(request.POST)
+        if form.is_valid():
+            product_request = form.save(commit=False)
+            product_request.requester = request.user
+            product_request.save()
+            return redirect('product_notice_board')
+    else:
+        form = ProductRequestForm()
+    return render(request, 'user/product_request.html', {'form': form})
+
+def product_notice_board(request):
+    product_requests = ProductRequest.objects.all()
+    return render(request, 'user/product_notice_board.html', {'product_requests': product_requests})
+
+def accept_product_request(request, product_request_id):
+    product_request = ProductRequest.objects.get(id=product_request_id)
+    product_request.is_accepted = True
+    product_request.save()
+    return redirect('product_notice_board')

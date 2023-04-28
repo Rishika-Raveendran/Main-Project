@@ -22,3 +22,11 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.staff.username}-Profile'
 
+class ProductRequest(models.Model):
+    product_name = models.CharField(max_length=255)
+    description = models.TextField()
+    requester = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_accepted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.product_name
