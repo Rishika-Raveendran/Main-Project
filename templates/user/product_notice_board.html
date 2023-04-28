@@ -37,7 +37,7 @@
                                     <td>{{ product_request.date_requested }}</td>
                                     <td>{% if product_request.is_accepted %}Accepted{% else %}Pending{% endif %}</td>
                                     <td>{% if not product_request.is_accepted %}
-                                          <form method="post" action="{% url 'accept_product_request' product_request.id %}">
+                                          <form method="post" action="{% url 'user_accept_product_request' product_request.id %}">
                                             {% csrf_token %}
                                             <input type="submit" value="Accept">
                                           </form>

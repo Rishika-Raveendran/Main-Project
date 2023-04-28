@@ -32,9 +32,9 @@ urlpatterns = [
     path('profile/update/',user_view.profile_update,name='user-profile-update'),
     path('',auth_views.LoginView.as_view(template_name="user/login.html"),name='user_login'),
     path('logout/',auth_views.LogoutView.as_view(template_name='user/logout.html'),name='user_logout'),
-    path('product_notice_board/',user_view.product_notice_board,name='user_product_notice_board'),
-    path('product_request/',user_view.product_request,name='user_product_request'),
-    path('accept_product_request/<int:id>/',user_view.accept_product_request,name='user_accept_product_request'),
+    path('product_notice_board/',user_view.product_notice_board,name='product_notice_board'),
+    path('product_request/',user_view.product_request,name='product_request'),
+    path('accept_product_request/<int:product_request_id>/',user_view.accept_product_request,name='user_accept_product_request'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
