@@ -6,6 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import ProductRequest
 
 
+
+
 class CreateUserForm(UserCreationForm):
     email = forms.EmailField()
     branchID = forms.CharField(required=False)
@@ -29,4 +31,6 @@ class ProductRequestForm(forms.ModelForm):
     class Meta:
         model = ProductRequest
         fields = ('product_name', 'description')
+
+
 

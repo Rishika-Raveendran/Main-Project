@@ -24,6 +24,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dashboard.urls')),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('product_notice_board/',user_view.product_notice_board,name='product_notice_board'),
     path('product_request/',user_view.product_request,name='product_request'),
     path('accept_product_request/<int:product_request_id>/',user_view.accept_product_request,name='user_accept_product_request'),
+    
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

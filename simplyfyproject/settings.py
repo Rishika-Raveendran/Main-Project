@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'dashboard.apps.DashboardConfig',
     'user.apps.UserConfig',
     'crispy_forms',
+
    
 ]
 
@@ -140,3 +141,7 @@ LOGIN_REDIRECT_URL = 'dashboard-index'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRONJOBS = [
+    ('*/5 * * * *', 'threshold_app.management.commands.check_value')
+]
