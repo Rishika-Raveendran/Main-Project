@@ -36,5 +36,6 @@ urlpatterns = [
     path('product_request/',user_view.product_request,name='product_request'),
     path('accept_product_request/<int:product_request_id>/',user_view.accept_product_request,name='user_accept_product_request'),
     
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

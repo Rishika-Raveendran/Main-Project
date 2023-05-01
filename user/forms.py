@@ -29,3 +29,4 @@ class ProductRequestForm(forms.ModelForm):
     class Meta:
         model = ProductRequest
         fields = ('product_name', 'description')
+

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'dashboard.apps.DashboardConfig',
     'user.apps.UserConfig',
     'crispy_forms',
+   
 ]
 
 MIDDLEWARE = [
@@ -137,4 +138,5 @@ MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'dashboard-index'
 
-LOGIN_URL = 'user_login'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
