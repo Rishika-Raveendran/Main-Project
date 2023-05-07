@@ -26,6 +26,7 @@ class ProductRequest(models.Model):
     product_name = models.CharField(max_length=255)
     description = models.TextField()
     requester = models.ForeignKey(User, on_delete=models.CASCADE)
+    accepted_by=models.CharField(max_length=100, null=True,blank=True)
     is_accepted = models.BooleanField(default=False)
 
     def __str__(self):

@@ -25,7 +25,7 @@
                                 <tr>
                                   <th>Product Name</th>
                                   <th>Requested By</th>
-                                  <th>Date Requested</th>
+                                  <th>Accepted By</th>
                                   <th>Status</th>
                                   <th>Action</th>
                                 </tr>
@@ -34,8 +34,8 @@
                                 {% for product_request in product_requests %}
                                   <tr>
                                     <td>{{ product_request.product_name }}</td>
-                                    <td>{{ product_request.requested_by }}</td>
-                                    <td>{{ product_request.date_requested }}</td>
+                                    <td>{{ product_request.requester }}</td>
+                                    <td>{{ product_request.accepted_by }}</td>
                                     <td>{% if product_request.is_accepted %}Accepted{% else %}Pending{% endif %}</td>
                                     <td>{% if not product_request.is_accepted %}
                                           <form method="post" action="{% url 'user_accept_product_request' product_request.id %}">

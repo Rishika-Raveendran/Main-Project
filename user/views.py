@@ -68,5 +68,7 @@ def product_notice_board(request):
 def accept_product_request(request, product_request_id):
     product_request = ProductRequest.objects.get(id=product_request_id)
     product_request.is_accepted = True
+    user = request.user
+    product_request.accepted_by= user.username
     product_request.save()
     return redirect('product_notice_board')
