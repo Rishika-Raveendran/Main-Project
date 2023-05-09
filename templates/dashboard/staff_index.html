@@ -34,6 +34,11 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4" style="display:flex;flex-direction:column;">
+             <a href="{% url 'upload_csv'%}"> <button>Upload sales</button></a>  
+             <a href="/DFShop"> <button>Demand Forecast</button></a>  
+
+            </div>
         </div>
     </div>
     <hr>
@@ -90,7 +95,6 @@
             </div>
             <div class="col-md-6">
                 <div class="bg-white">
-                    <button>Demand Forescast</button>
                     <canvas id="myChart" width="400" height="300"></canvas>
                     <script>
                         var ctx = document.getElementById('myChart').getContext('2d');

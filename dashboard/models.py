@@ -5,6 +5,7 @@ from tabnanny import verbose
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 CATEGORY = (
     ('Stationary','Stationary'),
@@ -38,3 +39,11 @@ class Sales(models.Model):
     def __str(self):
         return f'{self.user} ordered by {self.staff.username}'
     
+class Producer(models.Model):
+    name = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    username = models.CharField(max_length=20, blank=True)
+    producer_id = models.CharField(max_length=20, blank=True)
+    
+    
+
+

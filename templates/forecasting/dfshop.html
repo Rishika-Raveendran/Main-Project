@@ -1,0 +1,14 @@
+{% extends 'partials/base.html' %} {% block title %}Demand Forecast {% endblock%} {%  block content %}
+<h1 style="color:white;">Demand Forecast</h1>
+<form method="post" action="/outDFS" target="_blank">
+  {% csrf_token %}
+  <label for="selected_product">Select a product:</label>
+  <select name="selected_product" id="selected_product">
+    {% for product in products %}
+    <option value="{{ product }}">{{ product }}</option>
+    {% endfor %}
+  </select>
+  <br /><br />
+  <input type="submit" value="Submit" />
+</form>
+{% endblock %}
