@@ -9,101 +9,26 @@
     <!--Graphs-->
     <div class="container">
         <div class="row my-5">
-            <a href = "/DFOwner" ><button>Forecast demand</button></a>
+            <div class="col-md-6 p-3 m-4">
+                <a class="text-decoration-none" href = "/DFOwner" >
+                    <div class="card my-card shadow text-center p-3">
+                <h4>Forecast Demand <i class="fas fa-sharp fa-solid fa-briefcase"></i></h4>
+               
+            </div></a>  </div>
 </div>
-        <div class="row my-5">
-            <div class="col-md-6">
-                <div class="bg-white">
-                    <canvas id="myChart1" width="400" height="300"></canvas>
-                    <script>
-                        var ctx = document.getElementById('myChart1').getContext('2d');
-                        var myChart1 = new Chart(ctx, {
-                            type: 'line',
-                            data: {
-                                labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June'],
-                                datasets: [{
-                                    label: 'Overall Sales',
-                                    data: [12, 19, 3, 5, 2, 3],
-                                   /* backgroundColor: [
-                                        'rgba(255, 99, 132, .5)',
-                                        'rgba(54, 162, 235, .5)',
-                                        'rgba(255, 206, 86, .5)',
-                                        'rgba(75, 192, 192, .5)',
-                                        'rgba(153, 102, 255, .5)',
-                                        'rgba(255, 159, 64, .5)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(255, 99, 132, 1)',
-                                        'rgba(54, 162, 235, 1)',
-                                        'rgba(255, 206, 86, 1)',
-                                        'rgba(75, 192, 192, 1)',
-                                        'rgba(153, 102, 255, 1)',
-                                        'rgba(255, 159, 64, 1)'
-                                    ],
-                                    borderWidth: 1*/
-                                    fill: false,
-                                    borderColor: 'rgb(75, 192, 192)',
-                                    tension: 0.1
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }]
-                                }
-                            }
-                        });
-                    </script>
-                </div>
+
+<div class="row">
+    <div class="col-md-6 p-3 m-4">
+        <a class="text-decoration-none text-dark" href="{% url 'vmowner' %}">
+            <div class="card my-card shadow text-center p-3">
+                <h4>Lets go! <i class="fas fa-sharp fa-solid fa-briefcase"></i></h4>
+               
             </div>
-            <div class="col-md-6">
-                <div class="bg-white">
-                    <canvas id="myChart" width="400" height="300"></canvas>
-                    <script>
-                        var ctx = document.getElementById('myChart').getContext('2d');
-                        var myChart = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: ['Sari', 'Churidar', 'Jeans', 'Dress', 'Tops', 'Shirts'],
-                                datasets: [{
-                                    label: 'Product wise Sale',
-                                    data: [12, 19, 3, 5, 2, 3],
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, .5)',
-                                        'rgba(54, 162, 235, .5)',
-                                        'rgba(255, 206, 86, .5)',
-                                        'rgba(75, 192, 192, .5)',
-                                        'rgba(153, 102, 255, .5)',
-                                        'rgba(255, 159, 64, .5)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(255, 99, 132, 1)',
-                                        'rgba(54, 162, 235, 1)',
-                                        'rgba(255, 206, 86, 1)',
-                                        'rgba(75, 192, 192, 1)',
-                                        'rgba(153, 102, 255, 1)',
-                                        'rgba(255, 159, 64, 1)'
-                                    ],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }]
-                                }
-                            }
-                        });
-                    </script>
-                </div>
-            </div>
-        </div>
+        </a>
+    </div>
+   
+</div>
+        
     </div>
     <!--End Graphs-->
     {% elif user.is_authenticated and user.is_staff%}
@@ -129,6 +54,17 @@
        
         </div>
     </div>
+
+        <div class="row">
+            <div class="col-md-6 p-3 m-4">
+                <a class="text-decoration-none text-dark" href="{% url 'vmprod' %}">
+                    <div class="card my-card shadow text-center p-3">
+                        <h4>Get Started! <i class="fas fa-sharp fa-solid fa-briefcase"></i></h4>
+                       
+                    </div>
+                </a>
+            </div>
+           
     </div>
     {% else %}
 <div>You are seeing this page because you d not have the permissions to view the dashboard. Kindly wait till the super admin grants the access. </div>

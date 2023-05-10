@@ -19,7 +19,6 @@ from unicodedata import name
 from django.contrib import admin
 from django.urls import path, include
 from user import views as user_view
-from forecast import views as forecast_view
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -31,6 +30,7 @@ urlpatterns = [
     path('', include('dashboard.urls')),
     path('', include('forecast.urls')),
     path('', include('cleaning.urls')),    
+    path('', include('visualization.urls')),    
     path('register/',user_view.register,name='user-register'),
     path('profile/',user_view.profile,name='user-profile'),
     path('profile/update/',user_view.profile_update,name='user-profile-update'),
