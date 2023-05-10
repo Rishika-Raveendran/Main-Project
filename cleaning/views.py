@@ -8,20 +8,17 @@ from io import StringIO
 from pymongo import MongoClient
 import csv
 from user.models import Profile
-# from .settings import MONGO_URI
+
 
 
 def clean_csv(csv_file,shop_id):
     # Read in the CSV file
     df = pd.read_csv(csv_file)
-
     # delete some columns
     df = df[['Product', 'Sales']]
 
     df['Sales'] = pd.to_numeric(
-        df['Sales'], errors='coerce')
-
-    
+        df['Sales'], errors='coerce')    
     # Drop any rows with missing data
     df = df.dropna()
 

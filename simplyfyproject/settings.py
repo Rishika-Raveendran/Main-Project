@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'numpy',
     'matplotlib',
     'forecast',
-    'cleaning'
+    'cleaning',
+    'visualization'
 
 
    
