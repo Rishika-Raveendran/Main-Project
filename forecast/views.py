@@ -26,6 +26,7 @@ def dfshop(request):
     currentUser = Profile.objects.filter(staff=user).first()
 
     shop_id = currentUser.branchID
+    print("Shop ID:"+shop_id)
 
     # Load data from MongoDB
     # Replace 'your_db_name' with your actual MongoDB database name and 'your_collection_name' with your actual collection name
@@ -34,6 +35,7 @@ def dfshop(request):
     print(data)
     product = "Product"
     # Get a list of all products in the shop
+
     products = list(data[product].unique())
     # Pass the list of products to the template
     context = {'products': products, }

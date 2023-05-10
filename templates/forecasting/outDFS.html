@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -6,9 +7,11 @@
     <title>Demand Forecasting</title>
 </head>
 
-<body>
-    <h1>Demand Forecasting</h1>
 
+<body style="color: rgb(206, 174, 70); margin: 70px; background-color: black;">
+
+    <h1>Demand Forecasting</h1>
+<section>
     {% if forecast %}
     <h2 style="padding-top: 70px;"> Demand Forecast for Product {{ selected_product }}:</h2>
     <div style="display:flex;">
@@ -21,10 +24,12 @@
             {% endfor %}
         </table>
         <div id="graph-container" style="width: 600px; height: 400px;">
-            <img style="max-width: 100%; height: auto; margin-top: -250px; padding-left: 350px;" src="data:image/png;base64,{{ plot_data }}" alt="Forecast Plot">
+            <img style="max-width: 80%; height: auto; margin-top: -250px; padding-left: 350px;" src="data:image/png;base64,{{ plot_data }}" alt="Forecast Plot">
         </div>
     </div>
     {% endif %}
+</section>
+    
 </body>
 
 </html>

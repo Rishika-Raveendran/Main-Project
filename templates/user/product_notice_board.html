@@ -10,17 +10,24 @@
 
         </div>
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-secondary text-white">
+            <div class="card" style=" border-top-left-radius: 10px; border-top-right-radius: 10px; border-color: black;">
+                <div class="card-header"style="border-top-left-radius: 10px; border-top-right-radius: 10px;
+                background-image:linear-gradient(
+                    to right, 
+                    #d33f7d 0%,
+                    #b9566f 51%,
+                    #f1da71 100%
+                );
+                border-color: #ce8edf; color: black;">
                   Product Request Notice Board
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="background-color: black; color: rgb(187, 48, 106);">
                     <div class="row">
                         <div class="col-md-8">
                             <span class="h4"> Product Information</span> 
                             <hr>
                             {% if product_requests %}
-                            <table class="table bg-white table-borderless">
+                            <table class="table " style="background-color: black; color: rgb(196, 180, 113);box-shadow: 5px 3px 10px rgb(236, 142, 165);">
                               <thead>
                                 <tr>
                                   <th>Product Name</th>
@@ -40,7 +47,7 @@
                                     <td>{% if not product_request.is_accepted %}
                                           <form method="post" action="{% url 'user_accept_product_request' product_request.id %}">
                                             {% csrf_token %}
-                                            <input type="submit" value="Accept">
+                                            <input class="my-card" type="submit" value="Accept" style="background-color: black;color: rgb(167, 54, 116); box-shadow: 1px 1px 5px rgb(236, 142, 165);">
                                           </form>
                                         {% endif %}
                                     </td>
